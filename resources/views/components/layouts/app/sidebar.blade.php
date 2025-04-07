@@ -35,7 +35,7 @@
                 </div>
             </a>
 
-            <a href=""
+            <a href="{{ route('treino') }}"
                 class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('rica.dashboard') ? 'text-blue-500 border-l-2 border-blue-500 ' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
@@ -66,6 +66,21 @@
                     </h1>
                 </div>
             </a>
+
+            {{-- <a href="{{ route('perfil') }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('perfil') ? 'text-blue-400 bg-gray-100 rounded-xl' : ' hover:text-blue-500' }}"
+                x-bind:class="{
+                    'justify-start': sidebar.full,
+                    'sm:justify-center': !sidebar.full,
+                }">
+                <div class="flex items-center">
+                    <i data-lucide="user-round"></i>
+
+                    <h1 x-clock x-bind:class="!sidebar.full ? 'sm:hidden' : 'ml-2'">
+                        Perfil
+                    </h1>
+                </div>
+            </a> --}}
         </div>
     </div>
 </div>

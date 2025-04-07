@@ -16,6 +16,8 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/inicio', Dashboard::class)->name('dashboard');
 
+    Route::get('/treino', Dashboard::class)->name('treino');
+
     Route::get('/perfil', Perfil::class)->name('perfil');
 
     Route::redirect('settings', 'settings/profile');
