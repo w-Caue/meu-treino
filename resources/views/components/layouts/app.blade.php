@@ -41,7 +41,7 @@
 
             <main class="h-full w-full pb-16 border-r-2 border-gray-300 overflow-y-auto">
 
-                <div class=" my-3">
+                <div class="">
                     {{ $slot }}
                 </div>
             </main>

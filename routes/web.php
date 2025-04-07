@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Dashboard;
+use App\Livewire\Perfil;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -14,6 +15,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/inicio', Dashboard::class)->name('dashboard');
+
+    Route::get('/perfil', Perfil::class)->name('perfil');
 
     Route::redirect('settings', 'settings/profile');
 

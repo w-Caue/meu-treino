@@ -20,18 +20,16 @@
         <div class="relative mt-4 space-y-4 text-sm uppercase font-bold text-gray-600 dark:text-gray-400">
 
             {{-- HOME --}}
-            <a href=""
-                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('rica.dashboard') ? 'text-blue-500 border-l-2 border-blue-500 ' : ' hover:text-blue-500' }}"
+            <a href="{{ route('dashboard') }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('dashboard') ? 'text-blue-400 bg-gray-100 rounded-xl' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
                     'sm:justify-center': !sidebar.full,
                 }">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center">
                     <i data-lucide="house"></i>
 
-                    <h1 x-clock
-                        x-bind:class="!sidebar.full && tooltip.show ? visibleClass : '' || !sidebar.full && !tooltip.show ?
-                            'sm:hidden' : ''">
+                    <h1 x-clock x-bind:class="!sidebar.full ? 'sm:hidden' : 'ml-2'">
                         Inicio
                     </h1>
                 </div>
@@ -54,18 +52,16 @@
                 </div>
             </a>
 
-            <a href=""
-                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('rica.dashboard') ? 'text-blue-500 border-l-2 border-blue-500 ' : ' hover:text-blue-500' }}"
+            <a href="{{ route('perfil') }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('perfil') ? 'text-blue-400 bg-gray-100 rounded-xl' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
                     'sm:justify-center': !sidebar.full,
                 }">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center">
                     <i data-lucide="user-round"></i>
 
-                    <h1 x-clock
-                        x-bind:class="!sidebar.full && tooltip.show ? visibleClass : '' || !sidebar.full && !tooltip.show ?
-                            'sm:hidden' : ''">
+                    <h1 x-clock x-bind:class="!sidebar.full ? 'sm:hidden' : 'ml-2'">
                         Perfil
                     </h1>
                 </div>
