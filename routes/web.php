@@ -2,6 +2,7 @@
 
 use App\Livewire\Dashboard;
 use App\Livewire\Perfil;
+use App\Livewire\Treino;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -16,7 +17,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/inicio', Dashboard::class)->name('dashboard');
 
-    Route::get('/treino', Dashboard::class)->name('treino');
+    Route::get('/treino', Treino::class)->name('treino');
 
     Route::get('/perfil', Perfil::class)->name('perfil');
 

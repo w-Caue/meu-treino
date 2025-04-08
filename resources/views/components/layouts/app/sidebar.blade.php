@@ -21,7 +21,7 @@
 
             {{-- HOME --}}
             <a href="{{ route('dashboard') }}"
-                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('dashboard') ? 'text-blue-400 bg-gray-100 rounded-xl' : ' hover:text-blue-500' }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('dashboard') ? 'text-blue-400 bg-gray-100 rounded-2xl' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
                     'sm:justify-center': !sidebar.full,
@@ -36,24 +36,22 @@
             </a>
 
             <a href="{{ route('treino') }}"
-                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('rica.dashboard') ? 'text-blue-500 border-l-2 border-blue-500 ' : ' hover:text-blue-500' }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('treino') ? 'text-blue-400 bg-gray-100 rounded-2xl ' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
                     'sm:justify-center': !sidebar.full,
                 }">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center">
                     <i data-lucide="dumbbell"></i>
 
-                    <h1 x-clock
-                        x-bind:class="!sidebar.full && tooltip.show ? visibleClass : '' || !sidebar.full && !tooltip.show ?
-                            'sm:hidden' : ''">
+                    <h1 x-clock x-bind:class="!sidebar.full ? 'sm:hidden' : 'ml-2'">
                         Treino
                     </h1>
                 </div>
             </a>
 
             <a href="{{ route('perfil') }}"
-                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('perfil') ? 'text-blue-400 bg-gray-100 rounded-xl' : ' hover:text-blue-500' }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('perfil') ? 'text-blue-400 bg-gray-100 rounded-2xl' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
                     'sm:justify-center': !sidebar.full,
