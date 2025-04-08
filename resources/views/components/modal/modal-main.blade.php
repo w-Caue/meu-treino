@@ -8,7 +8,7 @@
         <div x-on:click="main = false" class="fixed ">
         </div>
         <div
-            class="w-full px-4 py-3 h-2/3 overflow-hidden bg-white rounded-t-lg border border-gray-300 sm:rounded-2xl sm:m-4 sm:max-w-xl dark:bg-gray-900 dark:border-gray-700">
+            class="w-full px-4 py-3 overflow-hidden bg-white rounded-t-lg border border-gray-300 sm:rounded-2xl sm:m-4 sm:max-w-xl dark:bg-gray-900 dark:border-gray-700">
             <div class="flex justify-between items-center py-1">
                 <div class="flex items-center gap-7">
                     <button
@@ -28,7 +28,8 @@
                 {{ $button }}
 
             </div>
-            {{ $body }}
+
+                {{ $body }}
         </div>
     </div>
 </div>

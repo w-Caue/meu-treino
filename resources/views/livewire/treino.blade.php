@@ -51,9 +51,7 @@
                             <h1 class="text-md">{{ $routine->name }}</h1>
 
                             <x-form.link-color href="{{ route('treino.rotina', ['codigo' => $routine->id]) }}"
-                                class="w-full bg-green-200 border border-green-200" value="Iniciar Rotina" i=""
-                                color="red">
-                                x-on:click="$dispatch('open-modal-primary', { name : 'novoRotina' })">
+                                class="w-full bg-green-200 border border-green-200" value="Iniciar Rotina" i="">
                             </x-form.link-color>
                         </div>
                     </div>
