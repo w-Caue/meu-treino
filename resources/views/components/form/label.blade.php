@@ -4,7 +4,7 @@
 
 <span for="{{ $for ?? '' }}"
     {{ $attributes->merge([
-        'class' => 'text-gray-500 text-sm font-semibold tracking-widest dark:text-gray-300',
+        'class' => 'text-gray-600 font-semibold dark:text-gray-400',
         'text-red-500' => $error, //condição, caso true, mostra text-red-500
     ]) }}>{{ $value }}
 </span>

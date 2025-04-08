@@ -39,7 +39,7 @@
         <div class="flex h-screen">
             @include('components.layouts.app.sidebar')
 
-            <main class="h-full w-full pb-16 border-r-2 border-gray-300 overflow-y-auto">
+            <main class="h-full w-full pb-16 border-r border-gray-300 overflow-y-auto">
 
                 <div class="">
                     {{ $slot }}

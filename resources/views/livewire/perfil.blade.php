@@ -1,15 +1,20 @@
-<div x-data="imageViewer()">
+<div>
     <div class="relative">
-        <div class="bg-gray-300 h-44">
+        <a href="{{ route('dashboard') }}" class="sticky top-0 bg-gray-200 border-b border-gray-300 p-4 flex items-center gap-5">
+            <i data-lucide="chevron-left" class="size-6 rounded-full hover:bg-gray-300 hover:cursor-pointer"></i>
+
+            <h1 class="font-bold text-lg text-gray-600">{{ $usuario->name }}</h1>
+        </a>
+        <div class="bg-blue-300 h-38 rounded-b-2xl">
 
         </div>
         <div>
-            <label class="absolute top-26 mx-3 bg-white rounded-full transition-all cursor-pointer">
+            <label class="absolute top-36 mx-3 bg-white rounded-full transition-all cursor-pointer">
                 <img src="{{ $usuario->photo }}" class="h-24 w-24 rounded-full object-cover" />
             </label>
 
             <div class="flex justify-end mx-3 p-2">
-                <x-form.button value="Editar Perfil" x-on:click="$dispatch('open-modal-main', { name : 'edit' })" />
+                <x-form.button value="Editar Perfil" i="user-round-pen" x-on:click="$dispatch('open-modal-main', { name : 'edit' })" />
             </div>
         </div>
     </div>
@@ -36,7 +41,7 @@
 
     <x-modal.modal-main name="edit" title="Editar" subtitle="Perfil">
         @slot('body')
-            <div class="mt-3">
+            <div class="mt-3" x-data="imageViewer()">
                 <div class="relative">
                     <div class="bg-gray-300 h-36">
 
@@ -66,7 +71,7 @@
                     </form>
 
                     @slot('button')
-                        <x-form.button wire:click="save()" value="Salvar" />
+                        <x-form.button wire:click="save()" value="Salvar" i="user-round-check" />
                     @endslot
                 </div>
 

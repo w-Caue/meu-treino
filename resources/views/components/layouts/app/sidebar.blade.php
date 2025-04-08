@@ -1,7 +1,7 @@
 <div class="flex justify-between">
 
     <div x-cloak x-on:click="sidebar.full = !sidebar.full"
-        class=" flex-shrink-0 transition-all duration-300 border-r-2 border-gray-300 p-4 hidden sm:block dark:bg-gray-900"
+        class=" flex-shrink-0 transition-all duration-300 border-r border-gray-300 p-4 hidden sm:block dark:bg-gray-900"
         x-bind:class="{
             'w-44': sidebar.full,
             'w-44 sm:w-20': !sidebar.full,
@@ -35,8 +35,8 @@
                 </div>
             </a>
 
-            <a href="{{ route('treino') }}"
-                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('treino') ? 'text-blue-400 bg-gray-100 rounded-2xl ' : ' hover:text-blue-500' }}"
+            <a href="{{ route('treino.list') }}"
+                class="relative flex justify-between items-center space-x-2 p-2 cursor-pointer {{ request()->routeIs('treino.*') ? 'text-blue-400 bg-gray-100 rounded-2xl ' : ' hover:text-blue-500' }}"
                 x-bind:class="{
                     'justify-start': sidebar.full,
                     'sm:justify-center': !sidebar.full,

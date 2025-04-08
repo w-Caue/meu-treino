@@ -9,10 +9,10 @@
         </div>
         <div
             class="w-full px-4 py-3 h-2/3 overflow-hidden bg-white rounded-t-lg border border-gray-300 sm:rounded-2xl sm:m-4 sm:max-w-xl dark:bg-gray-900 dark:border-gray-700">
-            <div class="flex justify-between items-start py-1">
+            <div class="flex justify-between items-center py-1">
                 <div class="flex items-center gap-7">
                     <button
-                        class="inline-flex items-center justify-center text-gray-600 hover:cursor-pointer dark:text-white dark:bg-gray-700"
+                        class="inline-flex items-center justify-center text-gray-600 rounded-lg hover:cursor-pointer hover:bg-gray-200 dark:text-white dark:bg-gray-700"
                         aria-label="close" x-on:click="main = false">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" role="img" aria-hidden="true">
                             <path
@@ -21,14 +21,8 @@
                         </svg>
                     </button>
 
-                    <div class="flex items-center gap-2">
-                        <div class="text-blue-500">
-                            {{-- <x-icons.ticket /> --}}
-                        </div>
-
-                        <h1 class="font-bold text-gray-700">{{ $title }}
-                            {{ $subtitle }}</h1>
-                    </div>
+                    <h1 class="text-lg font-bold uppercase text-blue-400">{{ $title }}
+                        {{ $subtitle }}</h1>
                 </div>
 
                 {{ $button }}
