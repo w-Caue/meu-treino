@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Dashboard;
+use App\Livewire\ExercicioDetalhe;
 use App\Livewire\Perfil;
 use App\Livewire\Rotina;
 use App\Livewire\Treino;
@@ -25,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/perfil', Perfil::class)->name('perfil');
+
+    Route::get('/exerciciodetalhe', ExercicioDetalhe::class)->name('exercicio_detalhe');
 
     Route::redirect('settings', 'settings/profile');
 
