@@ -9,62 +9,66 @@
     </div>
 
     <div class="p-5">
-        @forelse ($exercisesRoutines as $exercise)
-            <div wire:key="{{ $exercise->id }}"
-                class="p-2 mt-3 space-y-0 rounded-lg border bg-white hover:cursor-pointer dark:text-gray-400 dark:border-gray-700">
-                <div class="flex items-end gap-3 w-full text-xs font-bold uppercase">
-                    <h1 class="">{{ $exercise->name }}</h1>
-                    <span class="">({{ $exercise->equipment }})</span>
+        <div class="grid lg:grid-cols-2">
+            @forelse ($exercisesRoutines as $exercise)
+                <div wire:key="{{ $exercise->id }}"
+                    class="p-2 mt-3 space-y-0 rounded-lg border bg-white hover:cursor-pointer dark:text-gray-400 dark:border-gray-700">
+                    <div class="flex items-end gap-3 w-full text-xs font-bold uppercase">
+                        <h1 class="">{{ $exercise->name }}</h1>
+                        <span class="">({{ $exercise->equipment }})</span>
+                    </div>
+
+                    <div class="relative overflow-x-auto sm:rounded-lg mt-2">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs font-bold text-gray-500 uppercase">
+                                <tr>
+                                    <th scope="col" class="px-2 py-1">
+                                        Série
+                                    </th>
+                                    <th scope="col" class="px-2 py-1">
+                                        kg
+                                    </th>
+                                    <th scope="col" class="px-2 py-1">
+                                        reps
+                                    </th>
+                                    <th scope="col" class="px-2 py-1">
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($series as $serie)
+                                    @if ($serie->routine_exercise_id == $exercise->id)
+                                        <tr
+                                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800">
+                                            <td class="px-3 py-1 ">
+                                                <h1>{{ $serie->series }}</h1>
+                                            </td>
+                                            <td class="px-3 py-1">
+                                                <h1>{{ $serie->kg }}</h1>
+                                            </td>
+                                            <td class="px-3 py-1">
+                                                <h1>{{ $serie->reps }}</h1>
+                                            </td>
+                                            <td class="px-3 py-1">
+
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <x-form.button value="Adicionar Série" i="" wire:click="getSeries('{{ $exercise->id }}')" />
                 </div>
-
-                <div class="relative overflow-x-auto sm:rounded-lg w-1/2 mt-2">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs font-bold text-gray-500 uppercase">
-                            <tr>
-                                <th scope="col" class="px-2 py-1">
-                                    Série
-                                </th>
-                                <th scope="col" class="px-2 py-1">
-                                    kg
-                                </th>
-                                <th scope="col" class="px-2 py-1">
-                                    reps
-                                </th>
-                                <th scope="col" class="px-2 py-1">
-
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($series as $serie)
-                                @if ($serie->routine_exercise_id == $exercise->id)
-                                    <tr
-                                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800">
-                                        <td class="px-3 py-1 ">
-                                            <h1>{{ $serie->series }}</h1>
-                                        </td>
-                                        <td class="px-3 py-1">
-                                            <h1>{{ $serie->kg }}</h1>
-                                        </td>
-                                        <td class="px-3 py-1">
-                                            <h1>{{ $serie->reps }}</h1>
-                                        </td>
-                                        <td class="px-3 py-1">
-
-                                        </td>
-                                    </tr>
-                                @endif
-                            @endforeach
-                        </tbody>
-                    </table>
+            @empty
+                <div class="flex flex-col items-center gap-3">
+                    <i data-lucide="dumbbell" class="size-22 text-blue-300"></i>
+                    <h1 class="font-bold text-center">Comece adicionando um exercício a sua rotina</h1>
                 </div>
-            </div>
-        @empty
-            <div class="flex flex-col items-center gap-3">
-                <i data-lucide="dumbbell" class="size-22 text-blue-300"></i>
-                <h1 class="font-bold text-center">Comece adicionando um exercício a sua rotina</h1>
-            </div>
-        @endforelse
+            @endforelse
+        </div>
 
         <div class="flex justify-center mt-3">
             <x-form.button-color value="Adicionar Exercício" i="plus"

@@ -52,26 +52,32 @@ class Rotina extends Component
 
     public function getExercise($exercise)
     {
-        $exercise = RoutineExercise::create(
-            [
-                'routine_id' => $this->routine->id,
-                'exercise_id' => $exercise,
-            ]
-        );
+        $exists = RoutineExercise::where('id', $exercise)->first();
 
-        if ($exercise->save()) {
+        if (!$exists) {
+            $exercise = RoutineExercise::create(
+                [
+                    'routine_id' => $this->routine->id,
+                    'exercise_id' => $exercise,
+                ]
+            );
 
-            $series = SeriesExercise::create([
-                'routine_exercise_id' => $exercise->id,
-                'series' => 1,
-                'kg' => 0,
-                'reps' => 0,
-            ]);
+            if ($exercise->save()) {
 
-            $series->save();
+                $series = SeriesExercise::create([
+                    'routine_exercise_id' => $exercise->id,
+                    'series' => 1,
+                    'kg' => 0,
+                    'reps' => 0,
+                ]);
 
-            return $this->dispatch('close-modal-main');
+                $series->save();
+
+                return $this->dispatch('close-modal-main');
+            }
         }
+
+        return;
     }
 
     public function listSeries()
@@ -79,6 +85,24 @@ class Rotina extends Component
         $series = SeriesExercise::all();
 
         return $series;
+    }
+
+    public function getSeries($exercise)
+    {
+        $serie = SeriesExercise::where('routine_exercise_id', $exercise)->orderBy('id', 'DESC')->first();
+
+        $series = $serie->series + 1;
+
+        $addSerie = SeriesExercise::create([
+            'routine_exercise_id' => $exercise,
+            'series' => $series,
+            'kg' => 0,
+            'reps' => 0,
+        ]);
+
+        if ($addSerie->save()) {
+            return;
+        }
     }
 
     public function render()
