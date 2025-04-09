@@ -13,7 +13,7 @@
             @forelse ($exercisesRoutines as $exercise)
                 <div wire:key="{{ $exercise->id }}"
                     class="p-2 mt-3 space-y-0 rounded-lg border bg-white hover:cursor-pointer dark:text-gray-400 dark:border-gray-700">
-                    <a href="{{ route('exercicio_detalhe') }}"
+                    <a href="{{ route('exercicio_detalhe', ['codigo' => $exercise->id]) }}"
                         class="flex items-end gap-3 w-full text-xs font-bold uppercase">
                         <h1 class="">{{ $exercise->name }}</h1>
                         <span class="">({{ $exercise->equipment }})</span>

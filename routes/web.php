@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/perfil', Perfil::class)->name('perfil');
 
-    Route::get('/exerciciodetalhe', ExercicioDetalhe::class)->name('exercicio_detalhe');
+    Route::get('/detalhe-exercicio/{codigo}', ExercicioDetalhe::class)->name('exercicio_detalhe');
 
     Route::redirect('settings', 'settings/profile');
 

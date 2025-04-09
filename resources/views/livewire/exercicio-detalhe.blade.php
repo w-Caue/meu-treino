@@ -1,3 +1,3 @@
 <div>
-    <h1>ola</h1>
+    <h1>{{ $exercise }}</h1>
 </div>
